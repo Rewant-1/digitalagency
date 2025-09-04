@@ -1,0 +1,2210 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agesto - Creative Digital Agency</title>
+    <meta name="description" content="Professional digital agency specializing in Product Development, Digital Marketing, Web Development, and UI/UX Design">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Force all non-heading text in light mode to jet black */
+        body.light-mode p,
+        body.light-mode span,
+        body.light-mode li,
+        body.light-mode a,
+        body.light-mode .text-base,
+        body.light-mode .text-sm,
+        body.light-mode .text-lg,
+        body.light-mode .text-gray-600,
+        body.light-mode .text-gray-700 {
+            color: #000 !important;
+        }
+        html, body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff !important;
+            color: #000;
+            /* Paragraphs and non-heading text jet black in light mode */
+            body.light-mode p, body.light-mode span, body.light-mode li, body.light-mode a, body.light-mode .text-base, body.light-mode .text-sm, body.light-mode .text-lg {
+                color: #000 !important;
+            }
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .dark html, .dark body {
+            background-color: #111827 !important;
+            color: #f9fafb;
+        }
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Enhanced World-Class Color Scheme */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --secondary-gradient: linear-gradient(135deg, #a8ff78 0%, #78ffd6 100%);
+            --accent-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --warning-gradient: linear-gradient(135deg, #f9d423 0%, #ff4e50 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --dark-glass-bg: rgba(0, 0, 0, 0.1);
+            --dark-glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Advanced Background Patterns */
+        .hero-pattern {
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(102, 126, 234, 0.15) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(118, 75, 162, 0.15) 2px, transparent 2px);
+            background-size: 50px 50px, 30px 30px;
+            background-position: 0 0, 25px 25px;
+            animation: patternShift 20s ease-in-out infinite;
+        }
+
+        @keyframes patternShift {
+            0%, 100% { background-position: 0 0, 25px 25px; }
+            50% { background-position: 50px 50px, 75px 75px; }
+        }
+
+        /* Premium Glassmorphism Effects */
+        .glass-card {
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .dark .glass-card {
+            background: var(--dark-glass-bg);
+            border: 1px solid var(--dark-glass-border);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* Advanced Button Styles */
+        .btn-premium {
+            background: var(--primary-gradient);
+            position: relative;
+            overflow: hidden;
+            transform: perspective(1000px) rotateX(0deg);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:
+                0 4px 15px rgba(102, 126, 234, 0.4),
+                0 0 0 0 rgba(102, 126, 234, 0.7);
+        }
+
+        .btn-premium:hover {
+            transform: perspective(1000px) rotateX(-5deg) translateY(-2px);
+            box-shadow:
+                0 8px 25px rgba(102, 126, 234, 0.6),
+                0 0 0 8px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-premium:hover::before {
+            left: 100%;
+        }
+
+        /* Enhanced Typography */
+        .text-gradient {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .text-gradient::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--secondary-gradient);
+            border-radius: 2px;
+            opacity: 0;
+            transform: scaleX(0);
+            transition: all 0.3s ease;
+        }
+
+        .text-gradient:hover::after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
+        /* Premium Card Hover Effects */
+        .card-premium {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .card-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+            z-index: 1;
+        }
+
+        .card-premium:hover::before {
+            left: 100%;
+        }
+
+        .card-premium:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Advanced Animations */
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+            }
+        }
+
+        /* Premium Service Icons */
+        .service-icon-premium {
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-icon-premium::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .service-card:hover .service-icon-premium::before {
+            opacity: 0.1;
+            transform: scale(1);
+        }
+
+        .service-card:hover .service-icon-premium {
+            transform: scale(1.1) rotate(5deg);
+            color: #667eea;
+        }
+
+        /* Enhanced Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .portfolio-item:hover::before {
+            opacity: 0.9;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            z-index: 2;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Premium Testimonial Cards */
+        .testimonial-premium {
+            position: relative;
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 2rem;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .dark .testimonial-premium {
+            background: var(--dark-glass-bg);
+            border: 1px solid var(--dark-glass-border);
+        }
+
+        .testimonial-premium:hover {
+            transform: translateY(-5px) rotateX(2deg);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-premium::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #667eea;
+            opacity: 0.3;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        /* Enhanced Stats Counter */
+        .stat-counter {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-counter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            opacity: 0.1;
+            transition: left 0.6s ease;
+        }
+
+        .stat-counter:hover::before {
+            left: 0;
+        }
+
+        /* Premium Navigation */
+        .nav-premium {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-premium::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-premium:hover::before {
+            width: 100%;
+        }
+
+        /* Advanced Loading States */
+        .loading-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading-shimmer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Premium Form Styles */
+        .form-premium input:focus,
+        .form-premium textarea:focus {
+            transform: translateY(-2px);
+            box-shadow:
+                0 10px 25px rgba(102, 126, 234, 0.15),
+                0 0 0 2px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Enhanced Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-gradient);
+            border-radius: 6px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-gradient);
+        }
+
+        .dark ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Premium Mobile Menu */
+        .mobile-menu-premium {
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+
+        .dark .mobile-menu-premium {
+            background: var(--dark-glass-bg);
+            border: 1px solid var(--dark-glass-border);
+        }
+
+        /* Enhanced Theme Toggle */
+        .theme-toggle-premium {
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .dark .theme-toggle-premium {
+            background: var(--dark-glass-bg);
+            border: 1px solid var(--dark-glass-border);
+        }
+
+        .theme-toggle-premium:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Premium Footer */
+        .footer-premium {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary-gradient);
+            opacity: 0.05;
+        }
+
+        /* Advanced Hover Effects */
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Premium Badge */
+        .badge-premium {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Enhanced Focus States */
+        .focus-premium:focus {
+            outline: none;
+            box-shadow:
+                0 0 0 2px rgba(102, 126, 234, 0.5),
+                0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Gradient backgrounds */
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Pulse animation */
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.33);
+            }
+            80%, 100% {
+                opacity: 0;
+            }
+        }
+        .pulse-ring {
+            animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Button glow effect */
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        .btn-glow:hover::before {
+            left: 100%;
+        }
+
+        /* Agesto Digital Agency - Custom Styles */
+        /* Professional styling enhancements for modern web experience */
+
+        /* Background Pattern */
+        .hero-pattern {
+            background-image: radial-gradient(circle at 25% 25%, #667eea 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+
+        /* Scrolling Text Animation */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-scroll {
+            animation: scroll 30s linear infinite;
+        }
+
+        /* Custom Animation Delays */
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+
+        /* Enhanced Floating Cards Animation */
+        .float-animation-1 {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        .float-animation-2 {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        .float-animation-3 {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 1.5s;
+        }
+
+        /* Custom Gradient Animations */
+        @keyframes gradient-shift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .gradient-animated {
+            background: linear-gradient(270deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 800% 800%;
+            animation: gradient-shift 8s ease infinite;
+        }
+
+        /* Enhanced Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Typing Effect */
+        .typing-effect::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Enhanced Card Hover Effects */
+        .card-3d {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .card-3d:hover {
+            transform: rotateY(5deg) rotateX(5deg);
+        }
+
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.1);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Smooth Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Enhanced Scrollbar for Webkit browsers */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 6px;
+            border: 2px solid #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #5a67d8, #6b46c1);
+        }
+
+        /* Dark mode scrollbar */
+        .dark ::-webkit-scrollbar-track {
+            background: #2d3748;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            border-color: #2d3748;
+        }
+
+        /* Portfolio Image Overlay */
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        /* Notification Styles */
+        .notification {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid currentColor;
+        }
+
+        /* Form Enhancements */
+        .form-group {
+            position: relative;
+        }
+
+        .form-input {
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Custom Focus Styles */
+        .focus-outline:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+
+        /* Service Icon Animation */
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Testimonial Card Enhancement */
+        .testimonial-card {
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #667eea;
+            opacity: 0.3;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        /* Stats Counter Animation */
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .mobile-padding {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .mobile-text-center {
+                text-align: center;
+            }
+
+            .mobile-mb-4 {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .float-animation,
+            .animate-bounce,
+            .animate-pulse {
+                animation: none;
+            }
+        }
+
+        /* High Contrast Mode */
+        @media (prefers-contrast: high) {
+            .gradient-text {
+                background: none;
+                color: #000;
+            }
+
+            .dark .gradient-text {
+                color: #fff;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+
+            * {
+                background: white !important;
+                color: black !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-white/90 dark:bg-gray-900/90 border-b border-gray-200 dark:border-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold font-poppins text-gradient hover-lift">
+                        Agesto
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link nav-premium text-black dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Home</a>
+                        <a href="#services" class="nav-link nav-premium text-black dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Services</a>
+                        <a href="#portfolio" class="nav-link nav-premium text-black dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Portfolio</a>
+                        <a href="#process" class="nav-link nav-premium text-black dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Process</a>
+                        <a href="#testimonials" class="nav-link nav-premium text-black dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Testimonials</a>
+                        <a href="#contact" class="nav-link nav-premium text-black dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Theme Toggle & Mobile Menu Button -->
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="theme-toggle-premium p-3 text-black dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 focus-premium" aria-label="Toggle theme">
+                        <i class="fas fa-moon dark:hidden text-lg"></i>
+                        <i class="fas fa-sun hidden dark:block text-lg"></i>
+                    </button>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn" class="theme-toggle-premium p-3 text-black dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 focus-premium" aria-label="Toggle mobile menu">
+                            <i class="fas fa-bars text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden mobile-menu-premium">
+                <a href="#home" class="mobile-nav-link block px-4 py-3 text-black dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 border-b border-gray-200 dark:border-gray-700 last:border-b-0">Home</a>
+                <a href="#services" class="mobile-nav-link block px-4 py-3 text-black dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 border-b border-gray-200 dark:border-gray-700 last:border-b-0">Services</a>
+                <a href="#portfolio" class="mobile-nav-link block px-4 py-3 text-black dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 border-b border-gray-200 dark:border-gray-700 last:border-b-0">Portfolio</a>
+                <a href="#process" class="mobile-nav-link block px-4 py-3 text-black dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 border-b border-gray-200 dark:border-gray-700 last:border-b-0">Process</a>
+                <a href="#testimonials" class="mobile-nav-link block px-4 py-3 text-black dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 border-b border-gray-200 dark:border-gray-700 last:border-b-0">Testimonials</a>
+                <a href="#contact" class="mobile-nav-link block px-4 py-3 text-black dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 border-b border-gray-200 dark:border-gray-700 last:border-b-0">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-transparent pt-36 md:pt-40">
+        <!-- Enhanced Background Pattern -->
+        <div class="absolute inset-0 opacity-10 dark:opacity-20">
+            <div class="absolute top-0 left-0 w-full h-full hero-pattern"></div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-20 w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full opacity-20 animate-float"></div>
+        <div class="absolute top-40 right-32 w-16 h-16 bg-gradient-to-br from-pink-400 to-red-500 rounded-full opacity-20 animate-float" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-32 left-32 w-24 h-24 bg-gradient-to-br from-green-400 to-blue-500 rounded-full opacity-20 animate-float" style="animation-delay: 4s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <!-- Premium Badge -->
+                <div class="badge-premium inline-flex items-center mb-8 animate-pulse-glow" data-aos="fade-up">
+                    <i class="fas fa-star text-yellow-300 mr-2"></i>
+                    Trusted by more than a thousand clients
+                </div>
+
+                <!-- Enhanced Main Heading -->
+                <h1 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-poppins mb-8 leading-tight" data-aos="fade-up" data-aos-delay="100">
+                    A <span class="text-gradient">creative</span>
+                    <br>
+                    <span class="relative">
+                        digital agency
+                        <!-- Enhanced Underline -->
+                        <svg class="absolute -bottom-4 left-0 w-full h-6 text-indigo-600 dark:text-indigo-400" viewBox="0 0 100 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 6C25 12 75 0 100 6" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </h1>
+
+                <!-- Enhanced Description -->
+                <p class="text-xl md:text-2xl text-black dark:text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    We're a creative design studio specializing in meeting the needs of the new generation.
+                    We offer innovative and cutting-edge design solutions with world-class aesthetics.
+                </p>
+
+                <!-- Premium CTA Button -->
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <a href="#contact" class="btn-premium inline-flex items-center px-10 py-5 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300 group shadow-2xl">
+                        <span>Book a free consultation</span>
+                        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </a>
+                </div>
+
+                <!-- Enhanced Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-counter text-center glass-card p-6 rounded-2xl hover-lift">
+                        <div class="text-4xl md:text-5xl font-bold font-poppins mb-2 text-gradient">
+                            <span class="counter" data-target="5">0</span>+
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 font-medium">Years of experience</p>
+                    </div>
+                    <div class="stat-counter text-center glass-card p-6 rounded-2xl hover-lift">
+                        <div class="text-4xl md:text-5xl font-bold font-poppins mb-2 text-gradient">
+                            <span class="counter" data-target="250">0</span>k
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 font-medium">Successful projects</p>
+                    </div>
+                    <div class="stat-counter text-center glass-card p-6 rounded-2xl hover-lift">
+                        <div class="text-4xl md:text-5xl font-bold font-poppins mb-2 text-gradient">
+                            <span class="counter" data-target="98">0</span>%
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 font-medium">Client satisfaction rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="glass-card p-3 rounded-full hover-lift cursor-pointer">
+                <i class="fas fa-chevron-down text-2xl text-gray-600 dark:text-gray-400"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-transparent relative overflow-hidden">
+        <!-- Enhanced Background -->
+        <div class="absolute inset-0 opacity-5 dark:opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-pink-400 to-red-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Enhanced Image Section -->
+                <div class="relative" data-aos="fade-right">
+                    <div class="glass-card p-8 rounded-3xl hover-lift">
+                        <div class="relative overflow-hidden rounded-2xl">
+                            <img src="images/img.png" alt="About Us" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500">
+                            <!-- Premium Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                        <!-- Floating Stats Card -->
+                        <div class="absolute -bottom-6 -right-6 glass-card p-6 rounded-2xl shadow-2xl hover-lift">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold font-poppins text-gradient mb-1">500+</div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 font-medium">Happy Clients</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Content Section -->
+                <div data-aos="fade-left">
+                    <!-- Premium Badge -->
+                    <div class="badge-premium inline-flex items-center mb-6">
+                        <i class="fas fa-users text-blue-500 mr-2"></i>
+                        About Our Agency
+                    </div>
+
+                    <!-- Enhanced Heading -->
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-8 leading-tight">
+                        We create <span class="text-gradient">amazing</span> digital experiences
+                    </h2>
+
+                    <!-- Enhanced Description -->
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        We're a creative design studio specializing in meeting the needs of the new generation.
+                        We offer innovative and cutting-edge design solutions with world-class aesthetics and user experience.
+                    </p>
+
+                    <!-- Enhanced Features Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                        <div class="glass-card p-6 rounded-2xl hover-lift">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-palette text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold font-poppins">Creative Design</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400">Innovative design solutions that captivate and engage your audience.</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl hover-lift">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-600 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-code text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold font-poppins">Clean Code</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400">Optimized, maintainable code that ensures fast loading and performance.</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl hover-lift">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-mobile-alt text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold font-poppins">Responsive</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400">Perfect display across all devices and screen sizes.</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl hover-lift">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-rocket text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold font-poppins">Fast Delivery</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400">Quick turnaround times without compromising quality.</p>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced CTA -->
+                    <a href="#contact" class="btn-premium inline-flex items-center px-8 py-4 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300 group shadow-2xl">
+                        <span>Learn More About Us</span>
+                        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-transparent relative overflow-hidden">
+        <!-- Enhanced Background -->
+        <div class="absolute inset-0 opacity-5 dark:opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-green-400 to-blue-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Enhanced Header -->
+            <div class="text-center mb-20" data-aos="fade-up">
+                <!-- Premium Badge -->
+                <div class="badge-premium inline-flex items-center mb-6">
+                    <i class="fas fa-cogs text-green-500 mr-2"></i>
+                    Our Services
+                </div>
+
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-8 leading-tight">
+                    Have a wide range of
+                    <span class="text-gradient">creative projects</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    We offer comprehensive digital solutions tailored to meet the evolving needs of modern businesses.
+                </p>
+            </div>
+
+            <!-- Enhanced Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product Development -->
+                <div class="group cursor-pointer glass-card p-8 rounded-3xl hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-square bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-6 mb-6 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                        <i class="fas fa-code text-5xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 font-poppins">Product Development</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        Developing the look and feel of digital products, focusing on aesthetics, functionality, and user experience.
+                    </p>
+                    <div class="flex items-center text-indigo-600 dark:text-indigo-400 font-semibold group-hover:text-indigo-700 dark:group-hover:text-indigo-300">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </div>
+                </div>
+
+                <!-- Digital Marketing -->
+                <div class="group cursor-pointer glass-card p-8 rounded-3xl hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-square bg-gradient-to-br from-green-500 to-blue-600 rounded-2xl p-6 mb-6 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                        <i class="fas fa-chart-line text-5xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 font-poppins">Logo and Branding</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        Creating or refreshing a company's logo and developing a cohesive visual identity that resonates with audiences.
+                    </p>
+                    <div class="flex items-center text-indigo-600 dark:text-indigo-400 font-semibold group-hover:text-indigo-700 dark:group-hover:text-indigo-300">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="group cursor-pointer glass-card p-8 rounded-3xl hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-square bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl p-6 mb-6 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                        <i class="fas fa-mobile-alt text-5xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 font-poppins">App UI/UX Design</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        Designing the UI/UX for mobile apps and web applications to ensure optimal usability and engagement.
+                    </p>
+                    <div class="flex items-center text-indigo-600 dark:text-indigo-400 font-semibold group-hover:text-indigo-700 dark:group-hover:text-indigo-300">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </div>
+                </div>
+
+                <!-- UI/UX Design -->
+                <div class="group cursor-pointer glass-card p-8 rounded-3xl hover-lift" data-aos="fade-up" data-aos-delay="400">
+                    <div class="aspect-square bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl p-6 mb-6 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                        <i class="fas fa-box text-5xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 font-poppins">Packaging Design</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        Creating packaging solutions for products that not only protect but also attract customers in stores.
+                    </p>
+                    <div class="flex items-center text-indigo-600 dark:text-indigo-400 font-semibold group-hover:text-indigo-700 dark:group-hover:text-indigo-300">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced CTA Section -->
+            <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="500">
+                <div class="glass-card p-8 rounded-3xl max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold font-poppins mb-4">Ready to Start Your Project?</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Let's discuss your vision and bring it to life with our expertise.</p>
+                    <a href="#contact" class="btn-premium inline-flex items-center px-8 py-4 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300 group shadow-2xl">
+                        <span>Get Started Today</span>
+                        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-transparent relative overflow-hidden">
+        <!-- Enhanced Background -->
+        <div class="absolute inset-0 opacity-5 dark:opacity-10">
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Enhanced Header -->
+            <div class="text-center mb-20" data-aos="fade-up">
+                <!-- Premium Badge -->
+                <div class="badge-premium inline-flex items-center mb-6">
+                    <i class="fas fa-briefcase text-purple-500 mr-2"></i>
+                    Our Portfolio
+                </div>
+
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-8 leading-tight">
+                    We make your business
+                    <span class="text-gradient">stand out</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Explore our latest projects and see how we've helped businesses transform their digital presence with innovative solutions.
+                </p>
+            </div>
+
+            <!-- Enhanced Portfolio Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="group cursor-pointer glass-card rounded-3xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-square bg-gray-100 dark:bg-gray-800 overflow-hidden relative">
+                        <img src="images/img.png" alt="E-commerce Platform - Modern shopping experience" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <!-- Premium Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <!-- Content Overlay -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <h4 class="text-2xl font-bold mb-2">E-commerce Platform</h4>
+                                <p class="text-lg">Modern shopping experience with seamless user interface</p>
+                                <div class="mt-4">
+                                    <span class="btn-premium px-6 py-2 text-sm">View Project</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-poppins">E-commerce Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Digital Commerce</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div class="group cursor-pointer glass-card rounded-3xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-square bg-gray-100 dark:bg-gray-800 overflow-hidden relative">
+                        <img src="images/img.png" alt="Healthcare App - Digital health solutions" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <!-- Premium Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <!-- Content Overlay -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <h4 class="text-2xl font-bold mb-2">Healthcare App</h4>
+                                <p class="text-lg">Digital health solutions for modern medical practices</p>
+                                <div class="mt-4">
+                                    <span class="btn-premium px-6 py-2 text-sm">View Project</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-poppins">Healthcare App</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Medical Technology</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="group cursor-pointer glass-card rounded-3xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-square bg-gray-100 dark:bg-gray-800 overflow-hidden relative">
+                        <img src="images/img.png" alt="Financial Dashboard - Analytics platform" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <!-- Premium Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <!-- Content Overlay -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <h4 class="text-2xl font-bold mb-2">Financial Dashboard</h4>
+                                <p class="text-lg">Advanced analytics and insights platform</p>
+                                <div class="mt-4">
+                                    <span class="btn-premium px-6 py-2 text-sm">View Project</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-poppins">Financial Dashboard</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Fintech Solutions</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 4 -->
+                <div class="group cursor-pointer glass-card rounded-3xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="400">
+                    <div class="aspect-square bg-gray-100 dark:bg-gray-800 overflow-hidden relative">
+                        <img src="images/img.png" alt="Restaurant App - Food delivery platform" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <!-- Premium Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <!-- Content Overlay -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <h4 class="text-2xl font-bold mb-2">Restaurant App</h4>
+                                <p class="text-lg">Food delivery platform with real-time tracking</p>
+                                <div class="mt-4">
+                                    <span class="btn-premium px-6 py-2 text-sm">View Project</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-poppins">Restaurant App</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Food & Beverage</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 5 -->
+                <div class="group cursor-pointer glass-card rounded-3xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="500">
+                    <div class="aspect-square bg-gray-100 dark:bg-gray-800 overflow-hidden relative">
+                        <img src="images/img.png" alt="Education Platform - Online learning system" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <!-- Premium Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <!-- Content Overlay -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <h4 class="text-2xl font-bold mb-2">Education Platform</h4>
+                                <p class="text-lg">Online learning system with interactive features</p>
+                                <div class="mt-4">
+                                    <span class="btn-premium px-6 py-2 text-sm">View Project</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-poppins">Education Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-400">EdTech Solutions</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 6 -->
+                <div class="group cursor-pointer glass-card rounded-3xl overflow-hidden hover-lift" data-aos="fade-up" data-aos-delay="600">
+                    <div class="aspect-square bg-gray-100 dark:bg-gray-800 overflow-hidden relative">
+                        <img src="images/img.png" alt="Travel Booking - Adventure planning app" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <!-- Premium Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <!-- Content Overlay -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <h4 class="text-2xl font-bold mb-2">Travel Booking</h4>
+                                <p class="text-lg">Adventure planning app with smart recommendations</p>
+                                <div class="mt-4">
+                                    <span class="btn-premium px-6 py-2 text-sm">View Project</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-poppins">Travel Booking</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Travel & Tourism</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced CTA -->
+            <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="700">
+                <a href="#contact" class="btn-premium inline-flex items-center px-10 py-5 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300 group shadow-2xl">
+                    <span>View All Projects</span>
+                    <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform duration-300"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 bg-transparent relative overflow-hidden">
+        <!-- Enhanced Background -->
+        <div class="absolute inset-0 opacity-5 dark:opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-400 to-red-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-green-400 to-blue-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Enhanced Header -->
+            <div class="text-center mb-20" data-aos="fade-up">
+                <!-- Premium Badge -->
+                <div class="badge-premium inline-flex items-center mb-6">
+                    <i class="fas fa-cogs text-orange-500 mr-2"></i>
+                    Our Process
+                </div>
+
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-8 leading-tight">
+                    Our high-quality
+                    <span class="text-gradient">working processes</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto mb-8">
+                    We focus at every stage on effective communication and collaboration between the client and ensuring that the final design meets the client's objectives and expectations.
+                </p>
+                <p class="text-gray-500 dark:text-gray-400 max-w-3xl mx-auto">
+                    It is important to note that these are simplified steps, and the actual work process may vary depending on the complexity of the project.
+                </p>
+            </div>
+
+            <!-- Enhanced Process Steps -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:scale-110 transition-all duration-300 hover-lift">
+                        <span class="text-4xl font-bold text-white">01</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-6 font-poppins text-gradient">Discovery</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                        We start by understanding your business goals, target audience, and project requirements through comprehensive research.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card w-32 h-32 bg-gradient-to-br from-green-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:scale-110 transition-all duration-300 hover-lift">
+                        <span class="text-4xl font-bold text-white">02</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-6 font-poppins text-gradient">Strategy</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                        We develop a comprehensive strategy and create wireframes that bring your vision to life with user-centered approach.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:scale-110 transition-all duration-300 hover-lift">
+                        <span class="text-4xl font-bold text-white">03</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-6 font-poppins text-gradient">Execution</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                        We build your solution using cutting-edge technologies and best practices for optimal performance and scalability.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="glass-card w-32 h-32 bg-gradient-to-br from-orange-500 to-red-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:scale-110 transition-all duration-300 hover-lift">
+                        <span class="text-4xl font-bold text-white">04</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-6 font-poppins text-gradient">Delivery</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                        We deploy your project and provide ongoing support to ensure continued success and growth in the market.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Enhanced CTA -->
+            <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="500">
+                <div class="glass-card p-8 rounded-3xl max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold font-poppins mb-4">Ready to Start Your Project?</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Let's discuss your vision and bring it to life with our expertise.</p>
+                    <a href="#contact" class="btn-premium inline-flex items-center px-8 py-4 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300 group shadow-2xl">
+                        <span>Start Your Project</span>
+                        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-transparent relative overflow-hidden">
+        <!-- Enhanced Background -->
+        <div class="absolute inset-0 opacity-5 dark:opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Enhanced Header -->
+            <div class="text-center mb-20" data-aos="fade-up">
+                <!-- Premium Badge -->
+                <div class="badge-premium inline-flex items-center mb-6">
+                    <i class="fas fa-star text-yellow-500 mr-2"></i>
+                    Testimonials
+                </div>
+
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-8 leading-tight">
+                    Clients are always
+                    <span class="text-gradient">satisfied with us</span>
+                </h2>
+            </div>
+
+            <!-- Enhanced Scrolling Text Banner -->
+            <div class="overflow-hidden mb-16" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex whitespace-nowrap animate-scroll">
+                    <div class="flex items-center space-x-8 text-6xl md:text-8xl font-bold text-gray-200 dark:text-gray-700 font-poppins">
+                        <span>LET'S CREATE NEW EXPERIENCES</span>
+                        <span>•</span>
+                        <span>LET'S CREATE NEW EXPERIENCES</span>
+                        <span>•</span>
+                        <span>LET'S CREATE NEW EXPERIENCES</span>
+                        <span>•</span>
+                        <span>LET'S CREATE NEW EXPERIENCES</span>
+                        <span>•</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Testimonials Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-card p-8 rounded-3xl hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-yellow-400 text-lg">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-8 text-lg leading-relaxed">
+                        "Agesto transformed our digital presence completely. Their team's expertise and dedication resulted in a 300% increase in online conversions."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                            <span class="text-white font-bold text-lg">SM</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg font-poppins">Sarah Mitchell</h4>
+                            <p class="text-gray-500 dark:text-gray-400">CEO, TechStart Inc.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-card p-8 rounded-3xl hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-yellow-400 text-lg">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-8 text-lg leading-relaxed">
+                        "Professional, creative, and results-driven. Agesto delivered beyond our expectations and helped us establish a strong market presence."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                            <span class="text-white font-bold text-lg">RJ</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg font-poppins">Robert Johnson</h4>
+                            <p class="text-gray-500 dark:text-gray-400">Founder, GreenTech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass-card p-8 rounded-3xl hover-lift" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-yellow-400 text-lg">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-8 text-lg leading-relaxed">
+                        "The attention to detail and innovative solutions provided by Agesto have been instrumental in our company's digital transformation journey."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                            <span class="text-white font-bold text-lg">EC</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg font-poppins">Emily Chen</h4>
+                            <p class="text-gray-500 dark:text-gray-400">Director, Innovation Labs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced CTA -->
+            <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="500">
+                <div class="glass-card p-8 rounded-3xl max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold font-poppins mb-4">Join Our Happy Clients</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Ready to transform your business with our expertise?</p>
+                    <a href="#contact" class="btn-premium inline-flex items-center px-8 py-4 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300 group shadow-2xl">
+                        <span>Start Your Project</span>
+                        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-24 bg-transparent relative overflow-hidden">
+        <!-- Enhanced Background -->
+        <div class="absolute inset-0 opacity-5 dark:opacity-10">
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Enhanced Header -->
+            <div class="text-center mb-20" data-aos="fade-up">
+                <!-- Premium Badge -->
+                <div class="badge-premium inline-flex items-center mb-6">
+                    <i class="fas fa-users text-teal-500 mr-2"></i>
+                    Our Team
+                </div>
+
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-8 leading-tight">
+                    We have a team of
+                    <span class="text-gradient">creative people</span>
+                </h2>
+            </div>
+
+            <!-- Enhanced Team Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card aspect-square bg-gray-100 dark:bg-gray-800 rounded-3xl mb-6 overflow-hidden group-hover:scale-105 transition-all duration-300 hover-lift relative">
+                        <img src="images/img.png" alt="Alex Rodriguez - Creative Director" class="w-full h-full object-cover">
+                        <!-- Premium Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <div class="text-center text-white">
+                                <p class="text-sm font-medium">Creative Director</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 font-poppins text-gradient">Alex Rodriguez</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Creative Director</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card aspect-square bg-gray-100 dark:bg-gray-800 rounded-3xl mb-6 overflow-hidden group-hover:scale-105 transition-all duration-300 hover-lift relative">
+                        <img src="images/img.png" alt="Sarah Chen - Lead Developer" class="w-full h-full object-cover">
+                        <!-- Premium Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <div class="text-center text-white">
+                                <p class="text-sm font-medium">Lead Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 font-poppins text-gradient">Sarah Chen</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Lead Developer</p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card aspect-square bg-gray-100 dark:bg-gray-800 rounded-3xl mb-6 overflow-hidden group-hover:scale-105 transition-all duration-300 hover-lift relative">
+                        <img src="images/img.png" alt="Marcus Johnson - UX Designer" class="w-full h-full object-cover">
+                        <!-- Premium Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <div class="text-center text-white">
+                                <p class="text-sm font-medium">UX Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 font-poppins text-gradient">Marcus Johnson</h3>
+                    <p class="text-gray-600 dark:text-gray-400">UX Designer</p>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="glass-card aspect-square bg-gray-100 dark:bg-gray-800 rounded-3xl mb-6 overflow-hidden group-hover:scale-105 transition-all duration-300 hover-lift relative">
+                        <img src="images/img.png" alt="Emma Wilson - Project Manager" class="w-full h-full object-cover">
+                        <!-- Premium Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <div class="text-center text-white">
+                                <p class="text-sm font-medium">Project Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 font-poppins text-gradient">Emma Wilson</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Project Manager</p>
+                </div>
+            </div>
+
+            <!-- Enhanced CTA -->
+            <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="500">
+                <div class="glass-card p-8 rounded-3xl max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold font-poppins mb-4">Want to Join Our Team?</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">We're always looking for talented individuals to join our creative family.</p>
+                    <a href="#contact" class="btn-premium inline-flex items-center px-8 py-4 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300 group shadow-2xl">
+                        <span>Contact Us</span>
+                        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-transparent relative overflow-hidden">
+        <!-- Enhanced Background -->
+        <div class="absolute inset-0 opacity-5 dark:opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-pink-400 to-red-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Enhanced Header -->
+            <div class="text-center mb-20" data-aos="fade-up">
+                <!-- Premium Badge -->
+                <div class="badge-premium inline-flex items-center mb-6">
+                    <i class="fas fa-envelope text-indigo-500 mr-2"></i>
+                    Get In Touch
+                </div>
+
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-8 leading-tight">
+                    Let's start a project
+                    <span class="text-gradient">together</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
+                    We work closely with our clients to understand their objectives, target audience, and unique needs.
+                    We use our creative skills to translate these requirements into practical design solutions.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Enhanced Contact Info -->
+                <div data-aos="fade-right">
+                    <!-- Phone -->
+                    <div class="glass-card p-8 rounded-3xl mb-8 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-2xl flex items-center justify-center mr-6">
+                                <i class="fas fa-phone text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2 text-gray-500 dark:text-gray-400">Give us a call:</h3>
+                                <a href="tel:+15551234567" class="text-3xl md:text-4xl font-bold font-poppins hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 text-gradient">
+                                    (123) 456-7890
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="glass-card p-8 rounded-3xl mb-12 hover-lift">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mr-6">
+                                <i class="fas fa-envelope text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2 text-gray-500 dark:text-gray-400">Send us an email:</h3>
+                                <a href="mailto:hello@agesto.com" class="text-3xl md:text-4xl font-bold font-poppins hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 text-gradient">
+                                    hello@agesto.com
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced Social Links -->
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h3 class="text-xl font-semibold mb-6 text-gray-700 dark:text-gray-300">Follow Us:</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl" title="Twitter" aria-label="Visit our Twitter profile">
+                                <i class="fab fa-twitter text-white text-xl"></i>
+                            </a>
+                            <a href="#" class="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl" title="Facebook" aria-label="Visit our Facebook page">
+                                <i class="fab fa-facebook-f text-white text-xl"></i>
+                            </a>
+                            <a href="#" class="w-14 h-14 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl" title="Instagram" aria-label="Visit our Instagram profile">
+                                <i class="fab fa-instagram text-white text-xl"></i>
+                            </a>
+                            <a href="#" class="w-14 h-14 bg-gradient-to-br from-blue-700 to-blue-900 rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl" title="LinkedIn" aria-label="Visit our LinkedIn profile">
+                                <i class="fab fa-linkedin-in text-white text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Contact Form -->
+                <div data-aos="fade-left">
+                    <div class="glass-card p-8 rounded-3xl shadow-2xl">
+                        <h3 class="text-3xl font-bold mb-8 font-poppins text-gradient">Send us a message</h3>
+
+                        <form class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="relative">
+                                    <input type="text" id="name" name="name" class="w-full px-6 py-4 bg-white/50 dark:bg-gray-800/50 border-0 border-b-2 border-gray-200 dark:border-gray-600 rounded-2xl focus:border-indigo-600 dark:focus:border-indigo-400 focus:ring-0 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-lg backdrop-blur-sm" placeholder="Your name" required>
+                                </div>
+                                <div class="relative">
+                                    <input type="email" id="email" name="email" class="w-full px-6 py-4 bg-white/50 dark:bg-gray-800/50 border-0 border-b-2 border-gray-200 dark:border-gray-600 rounded-2xl focus:border-indigo-600 dark:focus:border-indigo-400 focus:ring-0 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-lg backdrop-blur-sm" placeholder="Your email" required>
+                                </div>
+                            </div>
+
+                            <div class="relative">
+                                <input type="text" id="subject" name="subject" class="w-full px-6 py-4 bg-white/50 dark:bg-gray-800/50 border-0 border-b-2 border-gray-200 dark:border-gray-600 rounded-2xl focus:border-indigo-600 dark:focus:border-indigo-400 focus:ring-0 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-lg backdrop-blur-sm" placeholder="Subject" required>
+                            </div>
+
+                            <div class="relative">
+                                <textarea id="message" name="message" rows="5" class="w-full px-6 py-4 bg-white/50 dark:bg-gray-800/50 border-0 border-b-2 border-gray-200 dark:border-gray-600 rounded-2xl focus:border-indigo-600 dark:focus:border-indigo-400 focus:ring-0 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-lg resize-none backdrop-blur-sm" placeholder="Tell us about your project..." required></textarea>
+                            </div>
+
+                            <div class="pt-4">
+                                <button type="submit" class="w-full btn-premium px-8 py-4 text-white font-semibold rounded-2xl hover:scale-105 transition-all duration-300 shadow-2xl text-lg">
+                                    Send message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-16 relative overflow-hidden">
+        <!-- Enhanced Background -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-pink-400 to-red-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <!-- Enhanced Logo/Brand -->
+                <div class="mb-8">
+                    <h3 class="text-4xl font-bold font-poppins text-gradient mb-2">Agesto</h3>
+                    <p class="text-gray-400 text-lg">Creative Digital Agency</p>
+                </div>
+
+                <!-- Enhanced Description -->
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    We're a creative design studio specializing in meeting the needs of the new generation.
+                    We offer innovative and cutting-edge design solutions with world-class aesthetics.
+                </p>
+
+                <!-- Enhanced Social Links -->
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#" class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl group" title="Twitter" aria-label="Visit our Twitter profile">
+                        <i class="fab fa-twitter text-white text-xl group-hover:rotate-12 transition-transform duration-300"></i>
+                    </a>
+                    <a href="#" class="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl group" title="Facebook" aria-label="Visit our Facebook page">
+                        <i class="fab fa-facebook-f text-white text-xl group-hover:rotate-12 transition-transform duration-300"></i>
+                    </a>
+                    <a href="#" class="w-14 h-14 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl group" title="Instagram" aria-label="Visit our Instagram profile">
+                        <i class="fab fa-instagram text-white text-xl group-hover:rotate-12 transition-transform duration-300"></i>
+                    </a>
+                    <a href="#" class="w-14 h-14 bg-gradient-to-br from-blue-700 to-blue-900 rounded-2xl flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl group" title="LinkedIn" aria-label="Visit our LinkedIn profile">
+                        <i class="fab fa-linkedin-in text-white text-xl group-hover:rotate-12 transition-transform duration-300"></i>
+                    </a>
+                </div>
+
+                <!-- Enhanced Copyright -->
+                <div class="border-t border-gray-700 pt-8">
+                    <p class="text-gray-400 text-lg">
+                        © Copyright 2025, All Rights Reserved by <span class="font-bold text-gradient">Agesto</span>
+                    </p>
+                    <p class="text-gray-500 text-sm mt-2">Crafted with ❤️ for amazing digital experiences</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ensure pure white body in light mode and pure dark in dark mode
+            const applyBodyBg = () => {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.body.style.backgroundColor = '#111827';
+                } else {
+                    document.body.style.backgroundColor = '#ffffff';
+                }
+            };
+            applyBodyBg();
+            
+            // Theme Management
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            
+            if (currentTheme === 'dark') { htmlElement.classList.add('dark'); }
+            applyBodyBg();
+            
+            themeToggle.addEventListener('click', function() {
+                htmlElement.classList.toggle('dark');
+                const theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+                localStorage.setItem('theme', theme);
+                applyBodyBg();
+                
+                themeToggle.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    themeToggle.style.transform = 'scale(1)';
+                }, 150);
+            });
+            
+            // Mobile Navigation
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.style.opacity = '0';
+                    mobileMenu.style.transform = 'translateY(-10px)';
+                    
+                    setTimeout(() => {
+                        mobileMenu.style.transition = 'all 0.3s ease';
+                        mobileMenu.style.opacity = '1';
+                        mobileMenu.style.transform = 'translateY(0)';
+                    }, 10);
+                    
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                } else {
+                    mobileMenu.style.transition = 'all 0.3s ease';
+                    mobileMenu.style.opacity = '0';
+                    mobileMenu.style.transform = 'translateY(-10px)';
+                    
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                    
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+            
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+            
+            // Smooth Scrolling Navigation
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 80;
+                        
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Dynamic Navbar
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset;
+                if (scrollTop > 10) {
+                    navbar.classList.add('shadow','border-b','border-gray-200','dark:border-gray-800');
+                } else {
+                    navbar.classList.remove('shadow','border-b','border-gray-200','dark:border-gray-800');
+                }
+            });
+            
+            // Active Link Highlighting
+            const sections = document.querySelectorAll('section[id]');
+            const navLinkElements = document.querySelectorAll('.nav-link');
+            
+            function updateActiveNavLink() {
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navLinkElements.forEach(link => {
+                            link.classList.remove('text-indigo-600', 'dark:text-indigo-400', 'font-semibold');
+                            link.classList.add('text-gray-700', 'dark:text-gray-300');
+                        });
+                        
+                        const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('text-indigo-600', 'dark:text-indigo-400', 'font-semibold');
+                            activeLink.classList.remove('text-gray-700', 'dark:text-gray-300');
+                        }
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveNavLink);
+            
+            // Contact Form Handling
+            const contactForm = document.querySelector('#contact form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(this);
+                    const name = formData.get('name');
+                    const email = formData.get('email');
+                    const subject = formData.get('subject');
+                    const message = formData.get('message');
+                    
+                    if (!name || !email || !subject || !message) {
+                        showNotification('Please fill in all fields', 'error');
+                        return;
+                    }
+                    
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        showNotification('Please enter a valid email address', 'error');
+                        return;
+                    }
+                    
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    submitBtn.innerHTML = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        showNotification('Thank you! Your message has been sent successfully.', 'success');
+                        this.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 2000);
+                });
+            }
+            
+            // Notification System
+            function showNotification(message, type = 'info') {
+                const existingNotification = document.querySelector('.notification');
+                if (existingNotification) {
+                    existingNotification.remove();
+                }
+                
+                const notification = document.createElement('div');
+                notification.className = `notification fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-md transform translate-x-full transition-transform duration-300`;
+                
+                switch (type) {
+                    case 'success':
+                        notification.classList.add('bg-green-500', 'text-white');
+                        break;
+                    case 'error':
+                        notification.classList.add('bg-red-500', 'text-white');
+                        break;
+                    default:
+                        notification.classList.add('bg-blue-500', 'text-white');
+                }
+                
+                notification.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'} mr-3"></i>
+                        <span>${message}</span>
+                        <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-white/80 hover:text-white">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.classList.remove('translate-x-full');
+                }, 100);
+                
+                setTimeout(() => {
+                    notification.classList.add('translate-x-full');
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.remove();
+                        }
+                    }, 300);
+                }, 5000);
+            }
+            
+            // Statistics Counter Animation
+            function animateCounters() {
+                const counters = document.querySelectorAll('.counter');
+                
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000;
+                    const increment = target / (duration / 16);
+                    let current = 0;
+                    
+                    const updateCounter = () => {
+                        current += increment;
+                        counter.textContent = Math.floor(current);
+                        
+                        if (current < target) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+                    
+                    const counterObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                updateCounter();
+                                counterObserver.unobserve(entry.target);
+                            }
+                        });
+                    });
+                    
+                    counterObserver.observe(counter);
+                });
+            }
+            
+            animateCounters();
+            
+            // Scroll to Top Button
+            const scrollToTopBtn = document.createElement('button');
+            scrollToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+            scrollToTopBtn.className = 'fixed bottom-8 right-8 z-50 w-12 h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg transition-all duration-300 transform scale-0';
+            scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
+            
+            document.body.appendChild(scrollToTopBtn);
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.remove('scale-0');
+                    scrollToTopBtn.classList.add('scale-100');
+                } else {
+                    scrollToTopBtn.classList.remove('scale-100');
+                    scrollToTopBtn.classList.add('scale-0');
+                }
+            });
+            
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Keyboard Navigation Support
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+            
+            // Focus Management
+            mobileMenuBtn.addEventListener('click', function() {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    const firstLink = mobileMenu.querySelector('a');
+                    if (firstLink) {
+                        setTimeout(() => firstLink.focus(), 100);
+                    }
+                }
+            });
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
