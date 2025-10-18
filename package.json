@@ -1,0 +1,16 @@
+{
+  "name": "agesto",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build:css": "postcss src/input.css -o dist/styles.css",
+    "watch:css": "postcss src/input.css -o dist/styles.css --watch",
+    "build": "npm run build:css"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.27",
+    "autoprefixer": "^10.4.14",
+    "postcss-cli": "^10.1.0"
+  }
+}

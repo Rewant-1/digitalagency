@@ -1,0 +1,71 @@
+# === Node / JavaScript ===
+# Dependency folders
+node_modules/
+
+# Debug / logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.log
+
+# Cache
+.cache/
+.npm/
+.parcel-cache/
+.turbo/
+.next/
+
+# Build output
+# NOTE: If you prefer to commit built artifacts (e.g. `dist/`) for simple static deploy,
+# remove `/dist/` from this file. By default `dist/` is tracked so you can deploy the
+# generated site directly from the repo. Keep `build/` ignored for tooling outputs.
+build/
+
+# Environment / secret files
+.env
+.env.*.local
+.env.local
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Swap / temp files
+*.swp
+*.swo
+*~
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Archives / packages
+*.tgz
+
+# Keep lockfiles and manifest tracked
+# DO NOT add `package.json`, `package-lock.json`, or `yarn.lock` here.
+# Tracking `package-lock.json` (or yarn.lock) ensures reproducible installs for
+# collaborators and CI.
