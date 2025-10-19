@@ -13,5 +13,5 @@
       "dest": "/$1"
     }
   ],
-  "outputDirectory": "."
+  "outputDirectory": "dist_site"
 }
