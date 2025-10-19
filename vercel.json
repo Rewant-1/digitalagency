@@ -7,11 +7,5 @@
       "config": { }
     }
   ],
-  "routes": [
-    {
-      "src": "^/(.*)$",
-      "dest": "/$1"
-    }
-  ],
   "outputDirectory": "dist_site"
 }
