@@ -69,3 +69,8 @@ desktop.ini
 # DO NOT add `package.json`, `package-lock.json`, or `yarn.lock` here.
 # Tracking `package-lock.json` (or yarn.lock) ensures reproducible installs for
 # collaborators and CI.
+
+# Generated / build outputs (ignored)
+dist_site/
+dist/
+styles.css
