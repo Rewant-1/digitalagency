@@ -7,5 +7,15 @@
       "config": { }
     }
   ],
+  "routes": [
+    {
+      "src": "^/$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/(.*)$",
+      "dest": "/$1"
+    }
+  ],
   "outputDirectory": "dist_site"
 }
