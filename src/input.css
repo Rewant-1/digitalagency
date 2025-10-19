@@ -2,5 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import existing custom styles so they are bundled after Tailwind */
-@import "../styles.css";
+/* Project custom styles (inlined so PostCSS picks them up without postcss-import) */
+:root {
+	--premium-from: #6366F1; /* indigo-500 */
+	--premium-to: #EC4899;   /* pink-500 */
+	--glass-light: rgba(255,255,255,0.6);
+	--glass-dark: rgba(15,23,42,0.35);
+}
+
+/* Glass card used throughout */
+.glass-card{
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+	background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+	border-radius: 0.75rem;
+	box-shadow: 0 8px 24px rgba(2,6,23,0.12);
+}
+.dark .glass-card{
+	background: linear-gradient(180deg, rgba(17,24,39,0.45), rgba(17,24,39,0.35));
+}
+
+/* Gradient text utility */
+.text-gradient{
+	background: linear-gradient(90deg, var(--premium-from), var(--premium-to));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+/* small lift hover used on cards */
+.hover-lift{ transition: transform .22s cubic-bezier(.2,.8,.2,1); }
+.hover-lift:hover{ transform: translateY(-6px); }
+
+.badge-premium{
+	display:inline-flex; align-items:center; gap:0.5rem;
+	padding:0.45rem 0.85rem; border-radius:9999px;
+	background: linear-gradient(90deg, rgba(99,102,241,0.08), rgba(236,72,153,0.04));
+	font-weight:600; font-size:0.875rem;
+}
+
+.btn-premium{
+	background: linear-gradient(90deg, var(--premium-from), var(--premium-to));
+	color: white; display:inline-flex; align-items:center; gap:0.5rem;
+	padding:0.75rem 1.25rem; border-radius:9999px; box-shadow:0 12px 30px rgba(99,102,241,0.12);
+}
+
+/* small glow animation for badges */
+@keyframes pulse-glow{ 0%{ filter: drop-shadow(0 0 0 rgba(99,102,241,0.0)); } 50%{ filter: drop-shadow(0 10px 30px rgba(99,102,241,0.06)); } 100%{ filter: drop-shadow(0 0 0 rgba(99,102,241,0.0)); } }
+.animate-pulse-glow{ animation: pulse-glow 2.5s infinite; }
+
+/* simple theme helpers */
+.font-poppins{ font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+
+/* mobile menu */
+.mobile-menu-premium{ background: white; }
+.dark .mobile-menu-premium{ background: #0f172a; }
+
+/* counters */
+.counter{ font-variant-numeric: tabular-nums; }
+
+/* minor utilities */
+.hover-lift:active{ transform: translateY(-2px); }
