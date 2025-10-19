@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:css": "postcss src/input.css -o dist/styles.css",
-    "watch:css": "postcss src/input.css -o dist/styles.css --watch",
-    "build": "npm run build:css && node scripts/prepare-dist.js && node scripts/log-dist.js"
+    "build:css": "postcss src/input.css -o styles.css",
+    "watch:css": "postcss src/input.css -o styles.css --watch",
+    "build": "npm run build:css"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.0",
